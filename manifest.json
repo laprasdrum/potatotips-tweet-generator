@@ -1,0 +1,20 @@
+{
+    "manifest_version": 2,
+    "name": "potatotips tweet generator",
+    "version": "0.0.1",
+    "description": "make tweet text from selected line texts of potatotips wiki",
+    "permissions": [
+      "contextMenus",
+      "clipboardRead"
+    ],
+    "icons" : {
+      "16": "icon16.png",
+      "19": "icon19.png",
+      "38": "icon38.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "background": {
+      "scripts": ["background.js"]
+    }
+}
