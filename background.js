@@ -13,19 +13,19 @@ function saveToClipboard(text) {
 }
 
 function tweetTextFrom(text, isFirst) {
-    var splited = text.split(" ");
+    var splitted = text.split(" ");
     var head = isFirst ? "はじめは" : "つぎは";
-    var lastIdx = splited.length - 1;
+    var lastIdx = splitted.length - 1;
  
-    var presenter = splited[0];
-    var nickname = splited[1];
-    var twitterAccountIdx = splited[lastIdx].match(/@/) ? lastIdx : lastIdx - 1;
-    var twitterAccount = splited[twitterAccountIdx];
-    var platform = splited[twitterAccountIdx - 1];
+    var presenter = splitted[0];
+    var nickname = splitted[1];
+    var twitterAccountIdx = splitted[lastIdx].match(/@/) ? lastIdx : lastIdx - 1;
+    var twitterAccount = splitted[twitterAccountIdx];
+    var platform = splitted[twitterAccountIdx - 1];
 
     var title = "";
     for(let i = 2; i < twitterAccountIdx - 1; i++) {
-        title = title.concat(splited[i], " ");
+        title = title.concat(splitted[i], " ");
     }
     title = title.slice(0, -1);
 
