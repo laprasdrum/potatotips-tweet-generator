@@ -15,11 +15,24 @@ function saveToClipboard(text) {
 function tweetTextFrom(text, isFirst) {
     var splited = text.split(" ");
     var head = isFirst ? "はじめは" : "つぎは";
+    var lastIdx = splited.length - 1;
+ 
+    var presenter = splited[0];
+    var nickname = splited[1];
+    var twitterAccountIdx = splited[lastIdx].match(/@/) ? lastIdx : lastIdx - 1;
+    var twitterAccount = splited[twitterAccountIdx];
+    var platform = splited[twitterAccountIdx - 1];
+
+    var title = "";
+    for(let i = 2; i < twitterAccountIdx - 1; i++) {
+        title = title.concat(splited[i], " ");
+    }
+    title = title.slice(0, -1);
 
     return head + " " +
-           splited[0] + "（"　+ splited[1] + "）さんで" +
-           "「" + splited[2] + "」（" + splited[3] + "） " +
-           splited[4] + " #potatotips"; 
+           presenter + "（"　+ nickname + "）さんで" +
+           "「" + title + "」（" + platform + "） " +
+           twitterAccount + " #potatotips"; 
 }
 
 chrome.contextMenus.create({
