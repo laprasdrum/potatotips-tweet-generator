@@ -27,8 +27,8 @@ function tweetTextFrom(line, prefix) {
     let twitterAccount = extractTwitterAccount(values[4].trim());
     let docURL = values[5].trim();
 
-    let presenter = (twitterAccount.length == 0) ? accountName : twitterAccount;
-    let nicknameText = (nickname.length == 0) ? "" : "（" + nickname + "）";
+    let presenter = twitterAccount || accountName;
+    let nicknameText = nickname ? "（" + nickname + "）" : "";
 
     return prefix + " " +
            presenter + nicknameText + "さんで" +
